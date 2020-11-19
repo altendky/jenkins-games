@@ -18,6 +18,6 @@ docker-compose build --build-arg DOCKER_SOCK_GID=$(stat -c '%g' /var/run/docker.
   - Set name to test
   - Select pipeline
   - Ok
-  - Add the pipeline script below
+  - Add the pipeline script from `Jenkinsfile.groovy`
   - Save
 - Build now
