@@ -1,10 +1,3 @@
-Problem
--------
-
-`Caused: java.io.IOException: Cannot run program "docker" (in directory "/home/jenkins/agent/workspace/test"): error=2, No such file or directory`
-
-My impression is that Jenkins is trying to run Docker in the labeled agent due to the pipeline-level Docker agent configuration despite specifying an agent by label for the last stage.  This seems like maybe a bug?  I also am open to suggestions about a better structure for this.  Note that in the real case there are many stages that I want run with the pipeline-level specified Docker agent.
-
 Setup
 -----
 
