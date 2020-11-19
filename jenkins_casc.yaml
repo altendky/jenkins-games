@@ -1,0 +1,33 @@
+jenkins:
+  numExecutors: 0
+  clouds:
+    - docker:
+        name: "docker"
+        dockerApi:
+          dockerHost:
+            uri: "unix:///var/run/docker.sock"
+        templates:
+          - labelString: "linux docker"
+            pullStrategy: PULL_NEVER
+            dockerTemplateBase:
+              image: "agent"
+              volumes:
+                - "/var/run/docker.sock:/var/run/docker.sock"
+            remoteFs: "/home/jenkins/agent"
+            connector:
+              attach:
+                user: "jenkins"
+            retentionStrategy:
+              idleMinutes: 0
+            stopTimeout: 0
+          - labelString: "linux test"
+            dockerTemplateBase:
+              image: "jenkins/agent:4.6-1-stretch"
+            mode: EXCLUSIVE
+            remoteFs: "/home/jenkins/agent"
+            connector:
+              attach:
+                user: "jenkins"
+            retentionStrategy:
+              idleMinutes: 0
+            stopTimeout: 0
