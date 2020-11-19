@@ -14,8 +14,19 @@ pipeline {
                     }
                 }
                 stage("Build B") {
-                    steps {
-                        sh "python --version --version"
+                    parallel {
+                        stage("B - 1") {
+                            steps {
+                                sh "python --version --version"
+                                sh "sleep 10"
+                            }
+                        }
+                        stage("B - 2") {
+                            steps {
+                                sh "python --version --version"
+                                sh "sleep 10"
+                            }
+                        }
                     }
                 }
             }
