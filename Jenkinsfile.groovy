@@ -34,7 +34,9 @@ pipeline {
         stage("Test") {
             matrix {
                 agent {
-                    label 'test'
+                    docker {
+                        image "python:3.9.0-buster"
+                    }
                 }
                 axes {
                     axis {
