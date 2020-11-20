@@ -49,13 +49,13 @@ pipeline {
                 stages {
                     stage("Test This") {
                         steps {
-                            sh 'echo we are here in ${FIRST_AXIS}${SECOND_AXIS}'
+                            sh 'echo $(date) -- we are here in ${FIRST_AXIS}${SECOND_AXIS} - $(pwd) | tee --append the_file'
                             sh 'sleep 10'
                         }
                     }
                     stage("Test That") {
                         steps {
-                            sh 'echo we are here in ${FIRST_AXIS}${SECOND_AXIS}'
+                            sh 'cat the_file'
                             sh 'sleep 10'
                         }
                     }
