@@ -23,7 +23,8 @@ RUN jenkins-plugin-cli --plugins \
         configuration-as-code:1.46 \
         blueocean:1.24.3 \
         docker-plugin:1.2.1 \
-        docker-workflow:1.25
+        docker-workflow:1.25 \
+        ec2:1.54
 
 ENV CASC_JENKINS_CONFIG=/var/jenkins_home/jenkins_casc.yaml
 COPY jenkins_casc.yaml $CASC_JENKINS_CONFIG
